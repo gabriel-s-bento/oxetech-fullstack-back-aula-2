@@ -16,6 +16,11 @@ async function create(userId, data) {
   });
 }
 
+async function listAll() {
+  return prisma.project.findMany();
+}
+
 module.exports = {
   create,
+  listAll,
 };

@@ -12,6 +12,18 @@ async function create(req, res) {
   }
 }
 
+async function listAll(req, res){
+  try {
+    const projects = await projectService.listAll();
+    return res.status(201).json(projects);
+  } catch (error) {
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}
+
 module.exports = {
   create,
+  listAll,
 };
